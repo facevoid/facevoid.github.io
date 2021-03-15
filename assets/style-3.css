@@ -11,6 +11,17 @@ a:hover {
     /* color: #444; */
 }
 
+body {
+    background-color: #F2F2F2;
+    margin: 0;
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+
+.in-text {
+    text-decoration: none;
+
+}
 
 .noter {
     font-size: 9pt;

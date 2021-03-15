@@ -3,6 +3,7 @@ const fontname = "Roboto+Mono";
 const fontweights = [300, 400]
 
 // Color properties
+// const basecolor = "#777";
 const basecolor = "#777";
 const accentcolor = "#007";
 const highlightcolor = "#111";
@@ -14,11 +15,11 @@ const highlightcolor = "#111";
 // Body properties
 const bodyfontweight = 300;
 const bodyfontsize = "12pt";
-const backgroundcolor = "#FFFAF0";
+const backgroundcolor = "#F2F2F2";
 
 // Link properties
 const acolor = accentcolor;
-const adecoration = "underline dotted";
+const adecoration = "none";
 // const ahovercolor = accentcolor;
 // const ahoverduration = "0.3s";
 // const ahoverdecoration = "none"; //none, underline, overline, dotted, color (https://www.w3schools.com/cssref/pr_text_text-decoration.asp)
@@ -83,6 +84,7 @@ $("body").css("color", basecolor);
 $("body").css("font-weight", bodyfontweight);
 $("body").css("font-size", bodyfontsize);
 $("body").css("background-color", backgroundcolor);
+// $("body").css("text-decoration", none);
 
 $("a").css("color", acolor);
 $("a").css("text-decoration", adecoration);
