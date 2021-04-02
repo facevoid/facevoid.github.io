@@ -1,0 +1,32 @@
+body {
+    background-color: #fff!important;
+}
+
+.allstuff .col-md-4 {
+    color: #fff;
+    /* background-color: #264475; */
+    border-right: 5px solid #264475;
+}
+
+
+/* .allstuff .col-md-4 p.name {
+    color: #fff!important;
+} */
+
+.allstuff .col-md-4 .menulink {
+    font-size: 16px!important;
+    letter-spacing: 1px;
+    color: #fff!important;
+    text-transform: capitalize;
+    display: inline-block!important;
+    padding: 7px 15px;
+    margin-bottom: 10px;
+    background: #264475;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 992px) {
+    .allstuff .col-md-8 {
+        padding-left: 50px;
+    }
+}
