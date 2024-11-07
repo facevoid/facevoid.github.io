@@ -1,201 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Portfolio of Jillur Rahman Saurav, PhD student at UT Arlington focusing on large-scale generative medical imaging">
-    <meta name="author" content="Jillur Rahman Saurav">
-    <title>Jillur Rahman Saurav - Academic Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            color: #333; 
-            line-height: 1.6; 
-        }
-        .container { 
-            max-width: 1140px; 
-        }
-        .sidebar { 
-            position: sticky; 
-            top: 20px; 
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .profile-img { 
-            width: 150px; 
-            border-radius: 50%; 
-            margin-bottom: 15px; 
-        }
-        .name { 
-            font-size: 20px; 
-            font-weight: bold; 
-            margin-bottom: 5px; 
-        }
-        .section-title { 
-            font-size: 22px; 
-            font-weight: bold; 
-            margin-top: 30px; 
-            margin-bottom: 20px; 
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-        }
-        .content-section { 
-            margin-bottom: 30px; 
-        }
-        .social-icons {
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-        .social-icons a {
-            color: #007bff;
-            margin-right: 10px;
-        }
-        .nav-link {
-            color: #495057;
-            font-size: 0.9rem;
-            padding: 5px 0;
-        }
-        .nav-link:hover {
-            color: #007bff;
-        }
-        .publication-item {
-            margin-bottom: 20px;
-        }
-        .publication-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-right: 15px;
-            border-radius: 5px;
-        }
-    </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Portfolio of Jillur Rahman Saurav, PhD student at UT Arlington focusing on large-scale generative medical imaging">
+	<meta name="author" content="Jillur Rahman Saurav">
+	<title>Jillur Rahman Saurav - Academic Portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+	<style>
+		body { 
+			font-family: 'Roboto', sans-serif;
+			line-height: 1.6;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 40px 20px;
+			color: #333;
+		}
+		
+		/* Header Layout */
+		.header-container {
+			display: grid;
+			grid-template-columns: 180px 1fr;
+			gap: 30px;
+			margin-bottom: 30px;
+			align-items: start;
+		}
+
+		/* Left Column Styles */
+		.left-column {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+
+		.profile-image {
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin-bottom: 12px;
+		}
+
+		.name-title {
+			font-weight: bold;
+			margin-bottom: 4px;
+			font-size: 1.1rem;
+		}
+
+		.position-title {
+			color: #666;
+			margin-bottom: 12px;
+			font-size: 0.95rem;
+			white-space: nowrap;
+		}
+
+		.social-links {
+			display: flex;
+			gap: 12px;
+			margin-top: 12px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.social-links a {
+			text-decoration: none;
+			color: #6610f2;
+			font-size: 1rem;
+		}
+
+		.email-link {
+			color: #6610f2;
+			text-decoration: none;
+			margin-top: 8px;
+			font-size: 0.85rem;
+		}
+
+		/* Right Column and Info Grid */
+		.right-column {
+			padding-top: 8px;
+		}
+
+		.intro-text {
+			font-size: 1rem;
+			line-height: 1.5;
+			margin-bottom: 25px;
+			color: #333;
+		}
+
+		.info-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 30px;
+			margin-top: 20px;
+		}
+
+		.column {
+			padding-right: 15px;
+		}
+
+		/* Section Headers */
+		.section-header {
+			font-size: 1.8rem;
+			font-weight: bold;
+			margin: 35px 0 15px 0;
+			border-bottom: 2px solid #6610f2;
+			padding-bottom: 8px;
+		}
+
+		h3 {
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: #666;
+			margin-bottom: 15px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			padding-bottom: 8px;
+			border-bottom: 2px solid #6610f2;
+		}
+
+		/* Lists */
+		.info-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.info-list li {
+			margin-bottom: 18px;
+		}
+
+		.title {
+			display: block;
+			font-weight: 600;
+			color: #333;
+			font-size: 0.9rem;
+		}
+
+		.subtitle {
+			display: block;
+			color: #666;
+			font-size: 0.85rem;
+			margin-top: 2px;
+		}
+
+		.date {
+			display: block;
+			color: #888;
+			font-size: 0.8rem;
+			margin-top: 2px;
+		}
+
+		/* News Section */
+		.news-table {
+			width: 100%;
+			font-size: 0.95rem;
+		}
+
+		.news-table td {
+			padding: 8px 0;
+			vertical-align: top;
+		}
+
+		.news-date {
+			font-weight: bold;
+			width: 120px;
+			color: #666;
+		}
+
+		/* Publications Section */
+		.publication {
+			display: flex;
+			margin-bottom: 20px;
+			gap: 15px;
+		}
+
+		.publication-thumbnail {
+			width: 160px;
+			height: 120px;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+
+		.publication-info {
+			flex: 1;
+		}
+
+		.publication-info h3 {
+			font-size: 1rem;
+			font-weight: 600;
+			margin-bottom: 6px;
+			line-height: 1.3;
+			border-bottom: none;
+			padding-bottom: 0;
+			text-transform: none;
+			letter-spacing: normal;
+		}
+
+		.publication-info p {
+			font-size: 0.85rem;
+			margin-bottom: 6px;
+			color: #555;
+		}
+
+		.publication-links {
+			display: flex;
+			gap: 12px;
+			margin-top: 6px;
+		}
+
+		.publication-links a {
+			color: #666;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			font-size: 0.85rem;
+		}
+
+		/* Skills Section */
+		.skills-list {
+			list-style: none;
+			padding: 0;
+			font-size: 0.95rem;
+		}
+
+		.skills-list li {
+			margin-bottom: 8px;
+		}
+
+		.skills-list strong {
+			color: #444;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.info-grid {
+				grid-template-columns: 1fr;
+				gap: 30px;
+			}
+
+			.column {
+				padding-right: 0;
+				padding-bottom: 20px;
+				border-bottom: 1px solid #eee;
+			}
+
+			.column:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+		}
+	</style>
 </head>
 <body>
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <img src="images/MD_JILLUR_RAHMAN_SAURAV.jpeg" alt="Jillur Rahman Saurav" class="profile-img">
-                    <h1 class="name">Jillur Rahman Saurav</h1>
-                    <p class="text-muted">PhD Student at UT Arlington</p>
-                    <div class="mt-3 mb-3">
-                        <a href="assets/Jillur_Rahman_Saurav_CV_Intern.pdf" target="_blank" class="btn btn-outline-primary btn-sm">
-                            <i class="fas fa-file-pdf"></i> CV
-                        </a>
-                    </div>
-                    <nav>
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        </ul>
-                    </nav>
-                    <div class="social-icons">
-                        <a href="mailto:sauravsust71@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://www.linkedin.com/in/jillur-rahman-saurav/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/void_71" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+    <div class="header-container">
+        <!-- Left column: Profile picture and social links -->
+        <div class="left-column">
+            <img src="images/MD_JILLUR_RAHMAN_SAURAV.jpeg" alt="Jillur Rahman Saurav" class="profile-image">
+            <div class="name-title">Jillur Rahman Saurav</div>
+            <div class="position-title">PhD Candidate • UT Arlington</div>
+            <div class="social-links">
+                <a href="assets/Jillur_Rahman_Saurav_CV_Intern.pdf" target="_blank">CV</a>
+                <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jillur-rahman-saurav/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/void_71" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="col-md-9">
-                <section id="about" class="content-section">
-                    <h2 class="section-title">About Me</h2>
-                    <p>I'm a PhD student and Research Assistant at the University of Texas at Arlington, working on large-scale generative medical imaging at <a href="https://luberlab.org/" target="_blank">Luber Lab</a> under the supervision of <a href="https://scholar.google.com/citations?user=qkLcROYAAAAJ&hl=en&oi=ao" target="_blank">Dr. Jacob Luber</a>. My research focuses on developing AI models for generating and analyzing medical images, particularly in the context of cancer research.</p>
-                </section>
+            <a href="mailto:sauravsust71@gmail.com" class="email-link">sauravsust71@gmail.com</a>
+        </div>
 
-                <section id="education" class="content-section">
-                    <h2 class="section-title">Education and Experience</h2>
-                    <h4>Education</h4>
-                    <ul>
-                        <li><strong>PhD in Computer Science</strong> (August 2021 - December 2025 Expected)<br>University of Texas at Arlington</li>
-                        <li><strong>B.Sc. (Engg.) in Computer Science</strong> (January 2013 - June 2018)<br>Shahjalal University of Science &amp; Technology, Bangladesh</li>
-                    </ul>
-                    <h4>Experience</h4>
-                    <ul>
-                        <li><strong>Research Assistant</strong> (June 2022 - Present)<br>University of Texas at Arlington</li>
-                        <li><strong>Teaching Assistant</strong> (August 2021 - May 2022)<br>University of Texas at Arlington</li>
-                        <li><strong>Software Engineer</strong> (November 2017 - December 2020)<br>pipilika.com</li>
-                    </ul>
-                </section>
+        <!-- Right column: Introduction text -->
+        <div class="right-column">
+			<p class="intro-text">Hi, I'm <strong>Saurav</strong>, a PhD Candidate and Research Assistant at <a href="https://luberlab.org/" target="_blank">Luber Lab</a> under <a href="https://scholar.google.com/citations?user=qkLcROYAAAAJ&hl=en&oi=ao" target="_blank">Dr. Jacob Luber</a>. My research focuses on generative models in medical imaging. I'm working on AI models that use multimodal approaches and large language models to help improve cancer diagnostics and explore personalized treatment options. I have a background in medical LLMs, deep learning for healthcare, and applying AI for clinical insights.</p>
+		
+			<div class="info-grid">
+				<div class="column">
+					<h3>Education</h3>
+					<ul class="info-list">
+						<li>
+							<span class="title">PhD in Computer Science</span>
+							<span class="subtitle">University of Texas at Arlington</span>
+							<span class="date">2021 - 2025 (Expected)</span>
+						</li>
+						<li>
+							<span class="title">B.Sc. in Computer Science</span>
+							<span class="subtitle">Shahjalal University of Science & Technology</span>
+							<span class="date">2013 - 2018</span>
+						</li>
+					</ul>
+				</div>
+		
+				<div class="column">
+					<h3>Experience</h3>
+					<ul class="info-list">
+						<li>
+							<span class="title">Research Assistant</span>
+							<span class="subtitle">University of Texas at Arlington</span>
+							<span class="date">2022 - Present</span>
+						</li>
+						<li>
+							<span class="title">Software Engineer</span>
+							<span class="subtitle">pipilika.com</span>
+							<span class="date">2017 - 2020</span>
+						</li>
+					</ul>
+				</div>
+		
+				<div class="column">
+					<h3>Research Interests</h3>
+					<ul class="info-list">
+						<li>
+							<span class="title">Multiplexed Image Generation</span>
+						</li>
+						<li>
+							<span class="title">LLMs for Health Informatics</span>
+						</li>
+						<li>
+							<span class="title">Medical Imaging</span>
+						</li>
+						<li>
+							<span class="title">Data Analysis</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </div>
+	<!-- News Section -->
+<!-- News Section -->
+<!-- News Section -->
+<div class="news-section">
+    <h2 class="section-header">Recent News</h2>
+    <table class="news-table">
+        <tr>
+            <td class="news-date">May 2024</td>
+            <td>Our paper "<strong>Spatialvisvr: An Immersive, Multiplexed Medical Image Viewer</strong>" accepted at <strong>IEEE CIBCB 2024</strong> (Natal, Brazil)</td>
+        </tr>
+        <tr>
+            <td class="news-date">April 2024</td>
+            <td>New work on "<strong>Peptide Sequencing Via Protein Language Models</strong>" to appear at <strong>ACM-BCB 2024</strong> (Chapel Hill, USA)</td>
+        </tr>
+        <tr>
+            <td class="news-date">April 2024</td>
+            <td>Paper "<strong>An Augmented Reality Multiplexed Pathology Image Viewer</strong>" accepted at <strong>IEEE ISBI 2024</strong> (Athens, Greece)</td>
+        </tr>
+        <tr>
+            <td class="news-date">April 2024</td>
+            <td>"<strong>Histopathology Slide Indexing and Search</strong>" selected for <strong>ACM BCB 2024 Highlights Track</strong> (Chapel Hill, USA)</td>
+        </tr>
+        <tr>
+            <td class="news-date">August 2023</td>
+            <td>"<strong>A SSIM Guided cGAN Architecture</strong>" selected as a highlight paper by ACM SIGBio 🏆</td>
+        </tr>
+        <tr>
+            <td class="news-date">July 2023</td>
+            <td>Published "<strong>B-ner: A Novel Bangla Named Entity Recognition Dataset</strong>" in <strong>IEEE Access</strong></td>
+        </tr>
+        <tr>
+            <td class="news-date">June 2023</td>
+            <td>Our work "<strong>Real-Time Diagnostic Integrity Meets Efficiency</strong>" accepted at <strong>IEEE ICASSP 2023</strong> (Rhodes Island, Greece)</td>
+        </tr>
+        <tr>
+            <td class="news-date">April 2023</td>
+            <td>Paper "<strong>Clinically Relevant Latent Space Embedding</strong>" accepted at <strong>IEEE ISBI 2023</strong> (Cartagena, Colombia)</td>
+        </tr>
+    </table>
+</div>
 
-                <section id="research" class="content-section">
-                    <h2 class="section-title">Research Interests</h2>
-                    <ul>
-                        <li>Deep Learning and Computer Vision in Medical Imaging</li>
-                        <li>Generative AI Models (GANs, VAEs) for Medical Image Synthesis</li>
-                        <li>Biomedical Image Analysis</li>
-                        <li>Natural Language Processing in Healthcare</li>
-                        <li>Data Science and Machine Learning in Medical Applications</li>
-                    </ul>
-                </section>
-                
-                <section id="publications" class="content-section">
-                    <h2 class="section-title">Selected Publications</h2>
-                    <div class="publication-item d-flex">
-                        <img src="images/ssim_paper.png" alt="Publication 1" class="publication-image">
-                        <div>
-                            <p><strong>Saurav, J.R.</strong>, et al. (2023). A SSIM Guided cGAN Architecture For Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels. IEEE CIBCB.</p>
-                        </div>
-                    </div>
-                    <div class="publication-item d-flex">
-                        <img src="images/.png" alt="Publication 2" class="publication-image">
-                        <div>
-                            <p>Nasr, M.S., ..., <strong>Saurav, J.R.</strong>, et al. (2024). Histopathology Slide Indexing and Search — Are We There Yet?. NEJM AI.</p>
-                        </div>
-                    </div>
-                    <div class="publication-item d-flex">
-                        <img src="images/p1.png" alt="Publication 3" class="publication-image">
-                        <div>
-                            <p>Nasr, M.S., ..., <strong>Saurav, J.R.</strong>, et al. (2023). Clinically Relevant Latent Space Embedding of Cancer Histopathology Slides through Variational Autoencoder Based Image Compression. IEEE ISBI.</p>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-muted">For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar profile</a>.</p>
-                </section>
-
-                
-                
-                <section id="projects" class="content-section">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <ul>
-                        <li>
-                            <strong>Artificial Biomarker Stains:</strong> Developed a cGAN architecture for generating missing biomarker channels in multiplexed spatial proteomics images, improving cost-effectiveness and efficiency in clinical diagnostics.<br>
-                            <em>Technologies: PyTorch, TensorFlow</em>
-                        </li>
-                        <li>
-                            <strong>Histopathology Image Compression:</strong> Engineered a VAE-based approach achieving a 1:512 compression ratio for cancer pathology slides while maintaining clinical accuracy, surpassing previous state-of-the-art.<br>
-                            <em>Technologies: PyTorch, scikit-learn</em>
-                        </li>
-                        <li>
-                            <strong>Bangla NLP Suite:</strong> Led development of various NLP tools for Bangla, including a context-aware spell checker, deep learning-based query classifier, and contributed to the largest Bangla sentiment analysis dataset.<br>
-                            <em>Technologies: Keras, Elasticsearch, Spring Boot, Flask</em>
-                        </li>
-                        <li>
-                            <strong>News Aggregator and Knowledge Graph:</strong> Designed a scalable news aggregator processing 10,000+ daily Bangla articles and built a knowledge graph from 5,552 national web portals using advanced clustering techniques.<br>
-                            <em>Technologies: Django, Elasticsearch, Scrapy, Docker</em>
-                        </li>
-                    </ul>
-                </section>
-                
-                <section id="skills" class="content-section">
-                    <h2 class="section-title">Skills</h2>
-                    <ul>
-                        <li><strong>Languages:</strong> Python, Java</li>
-                        <li><strong>Technologies:</strong> PyTorch, TensorFlow, Keras, Elasticsearch, Django, Docker, Scrapy, Apache Solr, Spring Boot, Flask</li>
-                        <li><strong>Machine Learning:</strong> Deep Learning, Computer Vision, GANs, VAEs, Natural Language Processing, Image Analysis</li>
-                        <li><strong>Data Science:</strong> Pandas, NumPy, scikit-learn, Data Visualization</li>
-                        <li><strong>Tools:</strong> Git, Linux, Weights & Biases, LaTeX</li>
-                    </ul>
-                </section>
+<!-- Publications Section -->
+<div class="publications-section">
+    <h2 class="section-header">Featured Publications</h2>
+    <div class="publication">
+        <img src="images/ssim_paper.png" alt="Publication 1" class="publication-thumbnail">
+        <div class="publication-info">
+            <h3>A SSIM Guided cGAN Architecture For Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels</h3>
+            <p><strong>Saurav, J.R.</strong>, et al. (2023) | IEEE CIBCB</p>
+            <div class="publication-links">
+                <a href="#"><i class="fas fa-link"></i>Project</a>
+                <a href="#"><i class="fas fa-file-alt"></i>Paper</a>
+                <a href="#"><i class="fas fa-code"></i>Code</a>
             </div>
         </div>
     </div>
+
+    <div class="publication">
+        <img src="images/are_we_there_yet.png" alt="Publication 2" class="publication-thumbnail">
+        <div class="publication-info">
+            <h3>Histopathology Slide Indexing and Search — Are We There Yet?</h3>
+            <p>Nasr, M.S., ..., <strong>Saurav, J.R.</strong>, et al. (2024) | NEJM AI</p>
+            <div class="publication-links">
+                <a href="#"><i class="fas fa-link"></i>Project</a>
+                <a href="#"><i class="fas fa-file-alt"></i>Paper</a>
+                <a href="#"><i class="fas fa-database"></i>Dataset</a>
+                <a href="#"><i class="fas fa-code"></i>Code</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="publication">
+        <img src="images/clinically_relevant.png" alt="Publication 3" class="publication-thumbnail">
+        <div class="publication-info">
+            <h3>Clinically Relevant Latent Space Embedding of Cancer Histopathology Slides through Variational Autoencoder Based Image Compression</h3>
+            <p>Nasr, M.S., ..., <strong>Saurav, J.R.</strong>, et al. (2023) | IEEE ISBI</p>
+            <div class="publication-links">
+                <a href="#"><i class="fas fa-link"></i>Project</a>
+                <a href="#"><i class="fas fa-file-alt"></i>Paper</a>
+                <a href="#"><i class="fas fa-code"></i>Code</a>
+            </div>
+        </div>
+    </div>
+    <p class="mt-3 text-muted" style="font-size: 0.9rem;">For a complete list of publications, visit my <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar profile</a></p>
+</div>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2 class="section-header">Skills</h2>
+    <ul class="skills-list">
+        <li><strong>Languages:</strong> Python, Java</li>
+        <li><strong>Machine Learning & AI:</strong> PyTorch, TensorFlow, GANs, VAEs, Computer Vision, NLP, Deep Learning</li>
+        <li><strong>Data Science:</strong> Pandas, NumPy, scikit-learn, Data Visualization, Statistical Analysis</li>
+        <li><strong>Development:</strong> Git, Docker, REST APIs, Elasticsearch, Django, Spring Boot</li>
+        <li><strong>Tools:</strong> Linux, Weights & Biases, LaTeX, CUDA, High-Performance Computing</li>
+    </ul>
+</section>
+
+   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
