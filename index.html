@@ -21,7 +21,6 @@
 			--bg: #ffffff;
 			--bg-soft: #f9fafb;
 			--radius: 14px;
-			--maxw: 720px;
 		}
 
 		* { box-sizing: border-box; }
@@ -38,63 +37,64 @@
 			text-rendering: optimizeLegibility;
 		}
 
-		.wrap {
-			max-width: var(--maxw);
-			margin: 0 auto;
-			padding: 44px 24px 52px;
-		}
-
 		a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
 		a:hover { color: var(--accent-dark); }
 
-		/* ---------- Hero ---------- */
-		.hero { text-align: center; margin-bottom: 34px; }
+		/* ---------- Two-column layout ---------- */
+		.layout {
+			max-width: 1080px;
+			margin: 0 auto;
+			padding: 60px 32px 24px;
+			display: grid;
+			grid-template-columns: 264px 1fr;
+			gap: 64px;
+			align-items: start;
+		}
+
+		/* ---------- Sidebar ---------- */
+		.sidebar { position: sticky; top: 48px; }
 
 		.avatar {
-			width: 120px;
-			height: 120px;
+			width: 116px;
+			height: 116px;
 			border-radius: 50%;
 			object-fit: cover;
 			border: 4px solid #fff;
 			box-shadow: 0 4px 20px rgba(17, 24, 39, 0.12);
-			margin-bottom: 14px;
+			margin-bottom: 16px;
 		}
 
-		.hero h1 {
-			font-size: 1.9rem;
+		.sidebar h1 {
+			font-size: 1.55rem;
 			font-weight: 700;
 			color: var(--ink);
 			letter-spacing: -0.02em;
-			margin: 0 0 6px;
+			margin: 0 0 5px;
+			line-height: 1.2;
 		}
 
-		.hero .role {
-			font-size: 1.05rem;
+		.sidebar .role {
+			font-size: 1rem;
 			font-weight: 500;
 			color: var(--ink);
 			margin: 0 0 2px;
 		}
 
-		.hero .affil {
-			font-size: 0.95rem;
+		.sidebar .affil {
+			font-size: 0.9rem;
 			color: var(--muted);
-			margin: 0 0 16px;
+			margin: 0 0 20px;
 		}
 
-		/* ---------- Links / buttons ---------- */
-		.actions {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 10px;
-			justify-content: center;
-			align-items: center;
-		}
+		.actions { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+
+		.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
 		.btn {
 			display: inline-flex;
 			align-items: center;
 			gap: 7px;
-			padding: 8px 16px;
+			padding: 8px 18px;
 			border: 1px solid var(--accent);
 			border-radius: 999px;
 			color: var(--accent);
@@ -103,19 +103,13 @@
 		}
 		.btn:hover { background: var(--accent); color: #fff; }
 
-		.icons {
-			display: flex;
-			gap: 6px;
-			justify-content: center;
-			align-items: center;
-			margin-left: 4px;
-		}
+		.icons { display: flex; gap: 4px; flex-wrap: wrap; }
 		.icons a {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			width: 40px;
-			height: 40px;
+			width: 38px;
+			height: 38px;
 			border-radius: 50%;
 			color: var(--muted);
 			font-size: 1.05rem;
@@ -123,8 +117,10 @@
 		}
 		.icons a:hover { color: var(--accent); background: var(--bg-soft); }
 
-		/* ---------- Sections ---------- */
-		section { margin-top: 36px; }
+		/* ---------- Main column ---------- */
+		.main { min-width: 0; }
+		.main > section { margin-top: 38px; }
+		.main > section:first-child { margin-top: 0; }
 
 		.section-title {
 			font-size: 0.8rem;
@@ -137,11 +133,7 @@
 			border-bottom: 1px solid var(--line);
 		}
 
-		.lead {
-			font-size: 1.05rem;
-			color: var(--body);
-			margin: 0;
-		}
+		.lead { font-size: 1.05rem; color: var(--body); margin: 0; }
 
 		/* ---------- Tags ---------- */
 		.tags { display: flex; flex-wrap: wrap; gap: 9px; }
@@ -155,11 +147,7 @@
 		}
 
 		/* ---------- Background grid ---------- */
-		.grid-2 {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 28px;
-		}
+		.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 		.entry { margin-bottom: 13px; }
 		.entry:last-child { margin-bottom: 0; }
 		.entry .e-title { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
@@ -248,8 +236,9 @@
 
 		/* ---------- Footer ---------- */
 		.footer {
-			margin-top: 44px;
-			padding-top: 20px;
+			max-width: 1080px;
+			margin: 0 auto;
+			padding: 24px 32px 40px;
 			border-top: 1px solid var(--line);
 			text-align: center;
 			font-size: 0.82rem;
@@ -257,29 +246,43 @@
 		}
 
 		/* ---------- Responsive ---------- */
+		@media (max-width: 860px) {
+			.layout {
+				grid-template-columns: 1fr;
+				gap: 32px;
+				padding: 44px 22px 16px;
+			}
+			.sidebar { position: static; text-align: center; }
+			.sidebar .actions { align-items: center; }
+			.btn-row, .icons { justify-content: center; }
+			.avatar { margin-left: auto; margin-right: auto; }
+			.main > section:first-child { margin-top: 6px; }
+		}
+
 		@media (max-width: 600px) {
-			.wrap { padding: 44px 20px 64px; }
-			.grid-2 { grid-template-columns: 1fr; gap: 26px; }
+			.grid-2 { grid-template-columns: 1fr; gap: 22px; }
 			.news-item { flex-direction: column; gap: 2px; }
 			.news-item .n-date { flex-basis: auto; }
 			.pub { flex-direction: column; }
 			.pub-thumb { width: 100%; height: 170px; }
-			.hero h1 { font-size: 1.6rem; }
 		}
 	</style>
 </head>
 <body>
-<div class="wrap">
 
-	<!-- ===================== HERO ===================== -->
-	<header class="hero">
+<div class="layout">
+
+	<!-- ===================== SIDEBAR ===================== -->
+	<aside class="sidebar">
 		<img src="images/MD_JILLUR_RAHMAN_SAURAV.jpeg" alt="Jillur Rahman Saurav" class="avatar">
 		<h1>Jillur Rahman Saurav</h1>
 		<p class="role">Machine Learning Researcher</p>
 		<p class="affil">Luber Lab · University of Texas at Arlington</p>
 		<div class="actions">
-			<a class="btn" href="assets/Jillur_Rahman_Saurav_Research_CV.pdf" target="_blank"><i class="fas fa-file-lines"></i> CV</a>
-			<a class="btn" href="assets/Jillur_Rahman_Saurav_MLE_CV.pdf" target="_blank"><i class="fas fa-briefcase"></i> Resume</a>
+			<div class="btn-row">
+				<a class="btn" href="assets/Jillur_Rahman_Saurav_Research_CV.pdf" target="_blank"><i class="fas fa-file-lines"></i> CV</a>
+				<a class="btn" href="assets/Jillur_Rahman_Saurav_MLE_CV.pdf" target="_blank"><i class="fas fa-briefcase"></i> Resume</a>
+			</div>
 			<div class="icons">
 				<a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
 				<a href="https://github.com/facevoid" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -288,208 +291,212 @@
 				<a href="mailto:jrsaurav.contact@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
 			</div>
 		</div>
-	</header>
+	</aside>
 
-	<!-- ===================== ABOUT ===================== -->
-	<section id="about">
-		<p class="lead">Hi, I'm <strong>Saurav</strong>, a Machine Learning Researcher at <a href="https://luberlab.org/" target="_blank">Luber Lab</a>, where I recently completed my PhD under <a href="https://scholar.google.com/citations?user=qkLcROYAAAAJ&hl=en&oi=ao" target="_blank">Dr. Jacob Luber</a>. My research focuses on generative models in medical imaging. I'm working on AI models that use multimodal approaches to help improve cancer diagnostics and explore personalized treatment options, with applications in virtual staining, multiplexed imaging, and computational pathology. My work is published in NEJM AI, IEEE, and Springer venues.</p>
-	</section>
+	<!-- ===================== MAIN ===================== -->
+	<main class="main">
 
-	<!-- ===================== RESEARCH INTERESTS ===================== -->
-	<section id="interests">
-		<h2 class="section-title">Research Interests</h2>
-		<div class="tags">
-			<span class="tag">Virtual Staining &amp; Multiplexed Imaging</span>
-			<span class="tag">Generative Models for Computational Pathology</span>
-			<span class="tag">Foundation Models for Medical Imaging</span>
-			<span class="tag">Multimodal &amp; Representation Learning</span>
-		</div>
-	</section>
+		<!-- About -->
+		<section id="about">
+			<p class="lead">Hi, I'm <strong>Saurav</strong>, a Machine Learning Researcher at <a href="https://luberlab.org/" target="_blank">Luber Lab</a>, where I recently completed my PhD under <a href="https://scholar.google.com/citations?user=qkLcROYAAAAJ&hl=en&oi=ao" target="_blank">Dr. Jacob Luber</a>. My research focuses on generative models in medical imaging. I'm working on AI models that use multimodal approaches to help improve cancer diagnostics and explore personalized treatment options, with applications in virtual staining, multiplexed imaging, and computational pathology. My work is published in NEJM AI, IEEE, and Springer venues.</p>
+		</section>
 
-	<!-- ===================== BACKGROUND ===================== -->
-	<section id="background">
-		<h2 class="section-title">Background</h2>
-		<div class="grid-2">
-			<div>
-				<p class="sub-label">Education</p>
-				<div class="entry">
-					<div class="e-title">PhD in Computer Science</div>
-					<div class="e-sub">University of Texas at Arlington</div>
-					<div class="e-date">2021 – 2026</div>
+		<!-- Research Interests -->
+		<section id="interests">
+			<h2 class="section-title">Research Interests</h2>
+			<div class="tags">
+				<span class="tag">Virtual Staining &amp; Multiplexed Imaging</span>
+				<span class="tag">Generative Models for Computational Pathology</span>
+				<span class="tag">Foundation Models for Medical Imaging</span>
+				<span class="tag">Multimodal &amp; Representation Learning</span>
+			</div>
+		</section>
+
+		<!-- Background -->
+		<section id="background">
+			<h2 class="section-title">Background</h2>
+			<div class="grid-2">
+				<div>
+					<p class="sub-label">Education</p>
+					<div class="entry">
+						<div class="e-title">PhD in Computer Science</div>
+						<div class="e-sub">University of Texas at Arlington</div>
+						<div class="e-date">2021 – 2026</div>
+					</div>
+					<div class="entry">
+						<div class="e-title">B.Sc. in Computer Science</div>
+						<div class="e-sub">Shahjalal University of Science &amp; Technology</div>
+						<div class="e-date">2013 – 2018</div>
+					</div>
 				</div>
-				<div class="entry">
-					<div class="e-title">B.Sc. in Computer Science</div>
-					<div class="e-sub">Shahjalal University of Science &amp; Technology</div>
-					<div class="e-date">2013 – 2018</div>
-				</div>
-			</div>
-			<div>
-				<p class="sub-label">Experience</p>
-				<div class="entry">
-					<div class="e-title">Research Assistant</div>
-					<div class="e-sub">University of Texas at Arlington</div>
-					<div class="e-date">2022 – Present</div>
-				</div>
-				<div class="entry">
-					<div class="e-title">Software Engineer</div>
-					<div class="e-sub">pipilika.com</div>
-					<div class="e-date">2017 – 2020</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ===================== NEWS ===================== -->
-	<section id="news">
-		<h2 class="section-title">Recent News</h2>
-
-		<div class="news-item">
-			<div class="n-date">May 2026</div>
-			<div class="n-body">Our paper "<strong>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</strong>" accepted at <strong>ACM-BCB 2026</strong> (Calabria, Italy) 🎉</div>
-		</div>
-		<div class="news-item">
-			<div class="n-date">April 2026</div>
-			<div class="n-body">Successfully defended my PhD dissertation, "<strong>Generative Imaging for Computational Pathology</strong>" 🎓</div>
-		</div>
-		<div class="news-item">
-			<div class="n-date">March 2026</div>
-			<div class="n-body">New preprint: "<strong>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</strong>" now available on <a href="https://arxiv.org/abs/2603.12716" target="_blank">arXiv</a></div>
-		</div>
-		<div class="news-item">
-			<div class="n-date">September 2025</div>
-			<div class="n-body">Our paper "<strong>Cross-Domain Image Synthesis: Generating H&amp;E from Multiplex Biomarker Imaging</strong>" accepted at <strong>MICAD 2025</strong> (Springer LNCS)</div>
-		</div>
-		<div class="news-item">
-			<div class="n-date">October 2024</div>
-			<div class="n-body">Our poster "<strong>Bridging mIF and H&amp;E: A GAN-based Approach for Cross-Modality Image Translation in Digital Pathology</strong>" presented at <strong>APBJC 2024</strong> (Okinawa, Japan)</div>
-		</div>
-		<div class="news-item">
-			<div class="n-date">May 2024</div>
-			<div class="n-body">Our paper "<strong>Spatialvisvr: An Immersive, Multiplexed Medical Image Viewer</strong>" accepted at <strong>IEEE CIBCB 2024</strong> (Natal, Brazil)</div>
-		</div>
-
-		<details class="more">
-			<summary>Show earlier news</summary>
-			<div class="news-item">
-				<div class="n-date">April 2024</div>
-				<div class="n-body">New work on "<strong>Peptide Sequencing Via Protein Language Models</strong>" to appear at <strong>ACM-BCB 2024</strong> (Shenzhen, China)</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">April 2024</div>
-				<div class="n-body">Happy to announce that I have passed my Comprehensive Exam and became a PhD Candidate! 🎉</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">April 2024</div>
-				<div class="n-body">Paper "<strong>An Augmented Reality Multiplexed Pathology Image Viewer</strong>" accepted at <strong>IEEE ISBI 2024</strong> (Athens, Greece)</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">April 2024</div>
-				<div class="n-body">"<strong>Histopathology Slide Indexing and Search</strong>" selected for <strong>ACM BCB 2024 Highlights Track</strong> (Chapel Hill, USA)</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">August 2023</div>
-				<div class="n-body">"<strong>A SSIM Guided cGAN Architecture</strong>" selected as a highlight paper by ACM SIGBio 🏆</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">July 2023</div>
-				<div class="n-body">Published "<strong>B-NER: A Novel Bangla Named Entity Recognition Dataset</strong>" in <strong>IEEE Access</strong></div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">June 2023</div>
-				<div class="n-body">Our work "<strong>Real-Time Diagnostic Integrity Meets Efficiency</strong>" accepted at <strong>IEEE ICASSP 2023</strong> (Rhodes Island, Greece)</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">April 2023</div>
-				<div class="n-body">Paper "<strong>A SSIM Guided cGAN Architecture for Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels</strong>" accepted at <strong>IEEE CIBCB 2023</strong> (Eindhoven, Netherlands)</div>
-			</div>
-			<div class="news-item">
-				<div class="n-date">April 2023</div>
-				<div class="n-body">Paper "<strong>Clinically Relevant Latent Space Embedding</strong>" accepted at <strong>IEEE ISBI 2023</strong> (Cartagena, Colombia)</div>
-			</div>
-		</details>
-	</section>
-
-	<!-- ===================== PUBLICATIONS ===================== -->
-	<section id="publications">
-		<h2 class="section-title">Featured Publications</h2>
-
-		<div class="pub">
-			<img src="images/unistainnet.png" alt="UNIStainNet" class="pub-thumb">
-			<div class="pub-info">
-				<h3>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</h3>
-				<p class="pub-meta"><strong>Saurav, J.R.</strong>, Pham, T.L.H., Mukherjee, P., Yi, P., Orr, B.A., Luber, J.M. (2026) · <span class="venue">ACM-BCB 2026</span></p>
-				<div class="pub-links">
-					<a href="https://facevoid.github.io/UNIStainNet" target="_blank"><i class="fas fa-link"></i> Project</a>
-					<a href="https://arxiv.org/abs/2603.12716" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+				<div>
+					<p class="sub-label">Experience</p>
+					<div class="entry">
+						<div class="e-title">Research Assistant</div>
+						<div class="e-sub">University of Texas at Arlington</div>
+						<div class="e-date">2022 – Present</div>
+					</div>
+					<div class="entry">
+						<div class="e-title">Software Engineer</div>
+						<div class="e-sub">pipilika.com</div>
+						<div class="e-date">2017 – 2020</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="pub">
-			<img src="images/cross_domain_synthesis.png" alt="Cross-Domain Image Synthesis" class="pub-thumb">
-			<div class="pub-info">
-				<h3>Cross-Domain Image Synthesis: Generating H&amp;E from Multiplex Biomarker Imaging</h3>
-				<p class="pub-meta"><strong>Saurav, J.R.</strong>, Nasr, M.S., Luber, J.M. (2025) · <span class="venue">MICAD, Springer LNCS</span></p>
-				<div class="pub-links">
-					<a href="https://arxiv.org/abs/2508.04734" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+		<!-- News -->
+		<section id="news">
+			<h2 class="section-title">Recent News</h2>
+
+			<div class="news-item">
+				<div class="n-date">May 2026</div>
+				<div class="n-body">Our paper "<strong>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</strong>" accepted at <strong>ACM-BCB 2026</strong> (Calabria, Italy) 🎉</div>
+			</div>
+			<div class="news-item">
+				<div class="n-date">April 2026</div>
+				<div class="n-body">Successfully defended my PhD dissertation, "<strong>Generative Imaging for Computational Pathology</strong>" 🎓</div>
+			</div>
+			<div class="news-item">
+				<div class="n-date">March 2026</div>
+				<div class="n-body">New preprint: "<strong>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</strong>" now available on <a href="https://arxiv.org/abs/2603.12716" target="_blank">arXiv</a></div>
+			</div>
+			<div class="news-item">
+				<div class="n-date">September 2025</div>
+				<div class="n-body">Our paper "<strong>Cross-Domain Image Synthesis: Generating H&amp;E from Multiplex Biomarker Imaging</strong>" accepted at <strong>MICAD 2025</strong> (Springer LNCS)</div>
+			</div>
+			<div class="news-item">
+				<div class="n-date">October 2024</div>
+				<div class="n-body">Our poster "<strong>Bridging mIF and H&amp;E: A GAN-based Approach for Cross-Modality Image Translation in Digital Pathology</strong>" presented at <strong>APBJC 2024</strong> (Okinawa, Japan)</div>
+			</div>
+			<div class="news-item">
+				<div class="n-date">May 2024</div>
+				<div class="n-body">Our paper "<strong>Spatialvisvr: An Immersive, Multiplexed Medical Image Viewer</strong>" accepted at <strong>IEEE CIBCB 2024</strong> (Natal, Brazil)</div>
+			</div>
+
+			<details class="more">
+				<summary>Show earlier news</summary>
+				<div class="news-item">
+					<div class="n-date">April 2024</div>
+					<div class="n-body">New work on "<strong>Peptide Sequencing Via Protein Language Models</strong>" to appear at <strong>ACM-BCB 2024</strong> (Shenzhen, China)</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">April 2024</div>
+					<div class="n-body">Happy to announce that I have passed my Comprehensive Exam and became a PhD Candidate! 🎉</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">April 2024</div>
+					<div class="n-body">Paper "<strong>An Augmented Reality Multiplexed Pathology Image Viewer</strong>" accepted at <strong>IEEE ISBI 2024</strong> (Athens, Greece)</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">April 2024</div>
+					<div class="n-body">"<strong>Histopathology Slide Indexing and Search</strong>" selected for <strong>ACM BCB 2024 Highlights Track</strong> (Chapel Hill, USA)</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">August 2023</div>
+					<div class="n-body">"<strong>A SSIM Guided cGAN Architecture</strong>" selected as a highlight paper by ACM SIGBio 🏆</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">July 2023</div>
+					<div class="n-body">Published "<strong>B-NER: A Novel Bangla Named Entity Recognition Dataset</strong>" in <strong>IEEE Access</strong></div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">June 2023</div>
+					<div class="n-body">Our work "<strong>Real-Time Diagnostic Integrity Meets Efficiency</strong>" accepted at <strong>IEEE ICASSP 2023</strong> (Rhodes Island, Greece)</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">April 2023</div>
+					<div class="n-body">Paper "<strong>A SSIM Guided cGAN Architecture for Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels</strong>" accepted at <strong>IEEE CIBCB 2023</strong> (Eindhoven, Netherlands)</div>
+				</div>
+				<div class="news-item">
+					<div class="n-date">April 2023</div>
+					<div class="n-body">Paper "<strong>Clinically Relevant Latent Space Embedding</strong>" accepted at <strong>IEEE ISBI 2023</strong> (Cartagena, Colombia)</div>
+				</div>
+			</details>
+		</section>
+
+		<!-- Publications -->
+		<section id="publications">
+			<h2 class="section-title">Featured Publications</h2>
+
+			<div class="pub">
+				<img src="images/unistainnet.png" alt="UNIStainNet" class="pub-thumb">
+				<div class="pub-info">
+					<h3>UNIStainNet: Foundation-Model-Guided Virtual Staining of H&amp;E to IHC</h3>
+					<p class="pub-meta"><strong>Saurav, J.R.</strong>, Pham, T.L.H., Mukherjee, P., Yi, P., Orr, B.A., Luber, J.M. (2026) · <span class="venue">ACM-BCB 2026</span></p>
+					<div class="pub-links">
+						<a href="https://facevoid.github.io/UNIStainNet" target="_blank"><i class="fas fa-link"></i> Project</a>
+						<a href="https://arxiv.org/abs/2603.12716" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="pub">
-			<img src="images/ssim_paper.png" alt="SSIM cGAN" class="pub-thumb">
-			<div class="pub-info">
-				<h3>A SSIM Guided cGAN Architecture for Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels</h3>
-				<p class="pub-meta"><strong>Saurav, J.R.</strong>, et al. (2023) · <span class="venue">IEEE CIBCB</span></p>
-				<div class="pub-links">
-					<a href="https://arxiv.org/abs/2205.10373" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+			<div class="pub">
+				<img src="images/cross_domain_synthesis.png" alt="Cross-Domain Image Synthesis" class="pub-thumb">
+				<div class="pub-info">
+					<h3>Cross-Domain Image Synthesis: Generating H&amp;E from Multiplex Biomarker Imaging</h3>
+					<p class="pub-meta"><strong>Saurav, J.R.</strong>, Nasr, M.S., Luber, J.M. (2025) · <span class="venue">MICAD, Springer LNCS</span></p>
+					<div class="pub-links">
+						<a href="https://arxiv.org/abs/2508.04734" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="pub">
-			<img src="images/are_we_there_yet.png" alt="Histopathology Search" class="pub-thumb">
-			<div class="pub-info">
-				<h3>Histopathology Slide Indexing and Search — Are We There Yet?</h3>
-				<p class="pub-meta">Nasr, M.S., …, <strong>Saurav, J.R.</strong>, et al. (2024) · <span class="venue">NEJM AI</span></p>
-				<div class="pub-links">
-					<a href="https://ai.nejm.org/doi/full/10.1056/AIcs2300019" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+			<div class="pub">
+				<img src="images/ssim_paper.png" alt="SSIM cGAN" class="pub-thumb">
+				<div class="pub-info">
+					<h3>A SSIM Guided cGAN Architecture for Clinically Driven Generative Image Synthesis of Multiplexed Spatial Proteomics Channels</h3>
+					<p class="pub-meta"><strong>Saurav, J.R.</strong>, et al. (2023) · <span class="venue">IEEE CIBCB</span></p>
+					<div class="pub-links">
+						<a href="https://arxiv.org/abs/2205.10373" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="pub">
-			<img src="images/clinically_relevant.png" alt="Clinically Relevant Latent Space" class="pub-thumb">
-			<div class="pub-info">
-				<h3>Clinically Relevant Latent Space Embedding of Cancer Histopathology Slides through Variational Autoencoder Based Image Compression</h3>
-				<p class="pub-meta">Nasr, M.S., …, <strong>Saurav, J.R.</strong>, et al. (2023) · <span class="venue">IEEE ISBI</span></p>
-				<div class="pub-links">
-					<a href="https://arxiv.org/abs/2303.13332" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+			<div class="pub">
+				<img src="images/are_we_there_yet.png" alt="Histopathology Search" class="pub-thumb">
+				<div class="pub-info">
+					<h3>Histopathology Slide Indexing and Search — Are We There Yet?</h3>
+					<p class="pub-meta">Nasr, M.S., …, <strong>Saurav, J.R.</strong>, et al. (2024) · <span class="venue">NEJM AI</span></p>
+					<div class="pub-links">
+						<a href="https://ai.nejm.org/doi/full/10.1056/AIcs2300019" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<p class="all-pubs">For a complete list of publications, visit my <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar profile</a>.</p>
-	</section>
+			<div class="pub">
+				<img src="images/clinically_relevant.png" alt="Clinically Relevant Latent Space" class="pub-thumb">
+				<div class="pub-info">
+					<h3>Clinically Relevant Latent Space Embedding of Cancer Histopathology Slides through Variational Autoencoder Based Image Compression</h3>
+					<p class="pub-meta">Nasr, M.S., …, <strong>Saurav, J.R.</strong>, et al. (2023) · <span class="venue">IEEE ISBI</span></p>
+					<div class="pub-links">
+						<a href="https://arxiv.org/abs/2303.13332" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
+					</div>
+				</div>
+			</div>
 
-	<!-- ===================== SKILLS ===================== -->
-	<section id="skills">
-		<h2 class="section-title">Skills</h2>
-		<div class="skills">
-			<div class="skill-row"><span class="s-label">Languages:</span> Python, Java, SQL</div>
-			<div class="skill-row"><span class="s-label">Deep Learning:</span> PyTorch, TensorFlow, JAX, GANs, VAEs, Diffusion Models, Transformers</div>
-			<div class="skill-row"><span class="s-label">Computer Vision &amp; Medical Imaging:</span> Image Synthesis, Computational Pathology, Virtual Staining, Contrastive Learning</div>
-			<div class="skill-row"><span class="s-label">ML Tooling:</span> scikit-learn, XGBoost, Weights &amp; Biases, OpenCV, Pandas, NumPy</div>
-			<div class="skill-row"><span class="s-label">Systems &amp; Infrastructure:</span> Docker, Linux, Git, HPC Clusters, Embedded Inference (Jetson, ARM)</div>
-			<div class="skill-row"><span class="s-label">Data Engineering:</span> Elasticsearch, Apache Solr, Django, MongoDB, PostgreSQL</div>
-		</div>
-	</section>
+			<p class="all-pubs">For a complete list of publications, visit my <a href="https://scholar.google.com/citations?user=uhDHcmoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar profile</a>.</p>
+		</section>
 
-	<footer class="footer">
-		<p>&copy; 2026 Jillur Rahman Saurav · Last updated June 2026</p>
-	</footer>
+		<!-- Skills -->
+		<section id="skills">
+			<h2 class="section-title">Skills</h2>
+			<div class="skills">
+				<div class="skill-row"><span class="s-label">Languages:</span> Python, Java, SQL</div>
+				<div class="skill-row"><span class="s-label">Deep Learning:</span> PyTorch, TensorFlow, JAX, GANs, VAEs, Diffusion Models, Transformers</div>
+				<div class="skill-row"><span class="s-label">Computer Vision &amp; Medical Imaging:</span> Image Synthesis, Computational Pathology, Virtual Staining, Contrastive Learning</div>
+				<div class="skill-row"><span class="s-label">ML Tooling:</span> scikit-learn, XGBoost, Weights &amp; Biases, OpenCV, Pandas, NumPy</div>
+				<div class="skill-row"><span class="s-label">Systems &amp; Infrastructure:</span> Docker, Linux, Git, HPC Clusters, Embedded Inference (Jetson, ARM)</div>
+				<div class="skill-row"><span class="s-label">Data Engineering:</span> Elasticsearch, Apache Solr, Django, MongoDB, PostgreSQL</div>
+			</div>
+		</section>
 
+	</main>
 </div>
+
+<footer class="footer">
+	<p>&copy; 2026 Jillur Rahman Saurav · Last updated June 2026</p>
+</footer>
 
 <script data-goatcounter="https://facelessvoid.goatcounter.com/count"
 	async src="//gc.zgo.at/count.js"></script>
